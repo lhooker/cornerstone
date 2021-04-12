@@ -27,7 +27,17 @@
     </div>
 </header>
 
-{{{ checkout.order_confirmation_content }}}
+<!--{{{ checkout.order_confirmation_content }}}-->
+
+<script>
+    checkoutLoader.loadFiles({ publicPath: 'http://127.0.0.1:8080/' })
+        .then(({ renderOrderConfirmation }) => {
+            renderOrderConfirmation({
+                orderId: '{{ checkout.order.id }}',
+                containerId: 'app',
+            });
+        });
+</script>
 
 {{{ footer.scripts }}}
 

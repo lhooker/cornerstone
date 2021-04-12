@@ -28,7 +28,21 @@
     </div>
 </header>
 
-{{{ checkout.checkout_content }}}
+<div id="app"></div>
+
+<!--{{{ checkout.checkout_content }}}-->
+
+<script src="http://127.0.0.1:8080/loader.js"></script>
+
+<script>
+    checkoutLoader.loadFiles({ publicPath: 'http://127.0.0.1:8080/' })
+        .then(({ renderCheckout }) => {
+            renderCheckout({
+                checkoutId: '{{ checkout.id }}',
+                containerId: 'app',
+            });
+        });
+</script>
 
 {{{ footer.scripts }}}
 
